@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ems.domain.entity.Work_Order_T;
 import com.ems.domain.repository.Work_Order_T_Repository;
 
-@RequestMapping(value = "/ems")
+@RequestMapping(value = "/ems/dh")
 @RestController
 public class EMSController {
 
@@ -37,6 +37,12 @@ public class EMSController {
 		return WOT;
 	}
 	
+	@GetMapping(value = "/get1/{linecd}")
+	public List<Work_Order_T> getLine(@PathVariable(value = "linecd") String LINECD) {
+	return repo.findByLINECD(LINECD);
+	
+	}
+
 	@PostMapping("/insert")
 	public Work_Order_T insert(@RequestBody Work_Order_T wot) {
 		

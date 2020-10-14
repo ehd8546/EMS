@@ -3,6 +3,7 @@ package com.ems.domain.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,9 @@ public class Work_Order_T {
 	private Date WO_YMD;
 	private String WO_NM;
 	private String EQUIP_CD;
-	private String LINE_CD;
+	
+	@Column(name = "LINE_CD")
+	private String LINECD;
 	private String GBM_CD;
 	private String TYPE_CD;
 	private String STATUS_CD;
